@@ -1,5 +1,5 @@
 # ⌨️ Project Soshell
-A Command Line Inspired Social Media Platform for Advanced Users.
+A Terminal Inspired Social Media Platform for Advanced Users.
 
 
 ## Demo
@@ -38,6 +38,13 @@ post view --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 defaul
 feed # returns top 5 unread posts and mark them as 'read'
 feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1># get feed in paginated way
 ```
+
+## NFRs
+ - Logging using logback
+ - Database migrations using flyway
+ - Object Relational Mapping using Spring Data JPA 
+ - Validations using jakarta validations API
+ - Unit testing using Powermock
 
 ## Pre-requisites
 
