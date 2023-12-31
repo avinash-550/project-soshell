@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico?" type="image/x-icon">
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:ital,wght@0,900;1,700;1,900&family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+    <title>soShell</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <h1><i class="uil uil-bug"></i>/soShell </h1>
+        </nav>
+        <div class="empty"></div>
+        <div class="terminal">
+            <p>Terminal </p>
+            <input id="commandInput" type="text" autofocus>
+        </div>
+        <div class="empty"></div>
+        <main>
+            <h2 id="inputText">Welcome to soShell!</h2>
+        </main>
+        <div class="output">
+            <p id="outputText"></p>
+        </div>
+        <div class="actions">
+            <br>
+            <h3>Get Started With Following Commands</h3><br><br><br>
+            <p id="actionText">
+                $ user signup your-username your-password <br><br>
+                $ user login your-username your-password<br><br> 
+                $ post create your-post-content<br><br>
+                $ post view your-post-id<br><br>
+                $ user logout<br><br>
+            </p>
+        </div>
+
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>
