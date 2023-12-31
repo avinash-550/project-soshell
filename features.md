@@ -29,16 +29,13 @@ feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1>#
 
 
 Phase 2
-## Feed and Following
+## Followers and Following
  - Allow users to follow and unfollow other users.
- - Feed of posts from users the current user follows.
  - Display a list of followers and following. 
 
 ```
 user follow <username>
 user unfollow <username>
-feed # returns top 5 unread posts and mark them as 'read'
-feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1># get feed in paginated way
 user following # returns top 5 users user is following
 user following --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1> # get following in paginated way
 user followers # retunrs top 5 users following user
