@@ -4,6 +4,11 @@ A Terminal Inspired Social Media Platform for Advanced Users.
 
 ## Demo
 
+## Tech Stack
+- Front-End - HTML/CSS/Javascript
+- Back-end - Spring Boot
+- Database - Postgresql
+  
 ## Features
 ### User Authentication and Authorization
  - Allow users to create accounts, log in, and log out.
@@ -27,7 +32,7 @@ post update <post-id> <updated-post-content>
 post delete <post-id>
 post rate <post-id> <rating-point> # rating point between 1-10
 post view <post-id>
-post view # returns list of user created posts
+post view <username> # returns list of user created posts
 post view --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1> # get user posts in paginated way
 ```
 ### User feed
