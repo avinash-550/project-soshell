@@ -22,54 +22,93 @@ public class UserCommandController {
 
     @ShellMethod(key = "user", value = "user related commands")
     public String user() {
-        return "User related commands. Usage only with sub-commands - signup,login";
+        return "User related commands. Usage only with sub-commands - signup,login,view,delete";
     }
 
     @ShellMethod(key = "user signup", value = "signup flow for a new user")
-    public String userSignUp(@ShellOption(value = { "--username", "-u" }) String username,
-            @ShellOption(value = { "--password", "-p" }) String password) {
+    public String userSignUp(
+            @ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username,
+            @ShellOption(value = { "--password", "-p" }, defaultValue = ShellOption.NULL) String password) {
         log.info("new signup request for username {}", username);
         try {
             userService.signupUser(username, password);
+        } catch (NullPointerException e) {
+            log.info(e.getMessage());
+            return "bad request - username or password should not be null";
         } catch (UserAlreadyExistsException e) {
             log.info(e.getMessage());
             return e.getMessage();
+        } catch (Exception e) {
+            log.info(e.toString());
+            return "internal server error";
         }
         return "signup successful";
     }
 
     @ShellMethod(key = "user login", value = "login flow for an user")
-    public String userLogin(@ShellOption(value = { "--username", "-u" }) String username,
-            @ShellOption(value = { "--password", "-p" }) String password) {
+    public String userLogin(
+            @ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username,
+            @ShellOption(value = { "--password", "-p" }, defaultValue = ShellOption.NULL) String password) {
         log.info("new login request for username {}", username);
         try {
             userService.loginUser(username, password);
+        } catch (NullPointerException e) {
+            log.info(e.getMessage());
+            return "bad request - username or password should not be null";
         } catch (UserNotFoundException e) {
             log.info(e.getMessage());
             return e.getMessage();
         } catch (InvalidCredException e) {
             log.info(e.getMessage());
             return e.getMessage();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return "internal server error";
         }
         return "login successful";
     }
 
     @ShellMethod(key = "user view", value = "view an user")
-    public String userLogout(@ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username) {
+    public String userLogout(
+            @ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username) {
         log.info("view request for user {}", username);
         User user = null;
         try {
             user = userService.getUserByUsername(username);
+        } catch (NullPointerException e) {
+            log.info(e.getMessage());
+            return "bad request - username should not be null";
         } catch (UserNotFoundException e) {
             log.info(e.getMessage());
             return e.getMessage();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return "internal server error";
         }
         return user.toString();
     }
 
-    @ShellMethod(key = "user follow", value = "follow user with username")
-    public String userFollow(@ShellOption(value = { "--username", "-u" }) String username) {
-        return "user " + username + " followed";
+    @ShellMethod(key = "user delete", value = "delete user with username")
+    public String userDelete(
+            @ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username,
+            @ShellOption(value = { "--password", "-p" }, defaultValue = ShellOption.NULL) String password) {
+        log.info("delete request for username {}", username);
+        try {
+            userService.deleteUser(username, password);
+        } catch (NullPointerException e) {
+            log.info(e.getMessage());
+            return "bad request - username or password should not be null";
+        } catch (UserNotFoundException e) {
+            log.info(e.getMessage());
+            return e.getMessage();
+        } catch (InvalidCredException e) {
+            log.info(e.getMessage());
+            return e.getMessage();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return "internal server error";
+        }
+        return "user " + username + " deleted";
     }
 
     @ShellMethod(key = "user unfollow", value = "unfollow user with username")

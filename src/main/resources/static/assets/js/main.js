@@ -54,7 +54,12 @@ async function updateOutputText(command) {
     appendOutputText("no active session found please login");
     return;
   }
-  
+
+  if(commandBreakUp[0] == "user" && commandBreakUp[1] == "delete"){
+    console.log("delete request");
+    logout();
+  }
+
   // server call in background and update 
   const output = await fetchData(command);
   appendOutputText(output);

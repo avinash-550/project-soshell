@@ -8,6 +8,7 @@ user signup --username <username> --password <password>
 user login --username <username> --password <password>
 user view <username>
 user logout
+user delete <username>
 ```
 
 ## Posting and Sharing
@@ -22,8 +23,12 @@ post rate <post-id> <rating-point> # rating point between 1-10
 post view <post-id>
 post view # returns list of user created posts
 post view --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1> # get user posts in paginated way
+feed # returns top 5 unread posts and mark them as 'read'
+feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1># get feed in paginated way
 ```
 
+
+Phase 2
 ## Feed and Following
  - Allow users to follow and unfollow other users.
  - Feed of posts from users the current user follows.
@@ -51,7 +56,7 @@ user delete <delete-token> # permanently deletes the user
 user delete --force <username> # direct delete
 ```
 
-Phase 2
+Phase 3
 ## Search Functionality
  - Search a user or post by given keyword.
 
