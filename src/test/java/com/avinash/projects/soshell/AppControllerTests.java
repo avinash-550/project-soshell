@@ -18,7 +18,8 @@ public class AppControllerTests {
 
     @Test
     void testExecuteCommand() {
-        Command command = new Command("user login xyz xyz");
+        Command command = new Command();
+        command.setCommand("user login xyz xyz");
         Mockito.when(shell.processString(command.getCommand())).thenReturn("login successful");
         String response = controller.executeCommand(command);
         Assertions.assertEquals("login successful", response);
