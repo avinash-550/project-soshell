@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:3000
+    description: Generated server url
+paths:
+  /process:
+    post:
+      tags:
+        - app-controller
+      operationId: executeCommand
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Command'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    Command:
+      type: object
+      properties:
+        command:
+          type: string

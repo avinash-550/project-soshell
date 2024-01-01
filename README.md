@@ -1,7 +1,8 @@
 # ⌨️ Project Soshell
 A Terminal Inspired Social Media Platform for Advanced Users.
 
-
+## Architecture
+![Alt text](docs/architecture.png)
 ## Demo
 
 ## Tech Stack
