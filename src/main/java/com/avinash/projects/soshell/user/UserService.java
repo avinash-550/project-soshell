@@ -9,7 +9,6 @@ import com.avinash.projects.soshell.user.exeptions.InvalidCredException;
 import com.avinash.projects.soshell.user.exeptions.UserAlreadyExistsException;
 import com.avinash.projects.soshell.user.exeptions.UserNotFoundException;
 
-import io.micrometer.common.lang.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,7 +21,7 @@ public class UserService {
     }
 
     @Transactional
-    public void signupUser(@NonNull String username,@NonNull String password) {
+    public void signupUser(String username,String password) {
         try {
             if (userRepository.userPresentWithUsername(username)) {
                 throw new UserAlreadyExistsException(String.format("user with username %s already exists", username));

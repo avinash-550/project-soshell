@@ -8,7 +8,6 @@ import com.avinash.projects.soshell.user.exeptions.InvalidCredException;
 import com.avinash.projects.soshell.user.exeptions.UserAlreadyExistsException;
 import com.avinash.projects.soshell.user.exeptions.UserNotFoundException;
 
-import jakarta.validation.constraints.Size;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -69,7 +68,7 @@ public class UserCommandController {
     }
 
     @ShellMethod(key = "user view", value = "view an user")
-    public String userLogout(
+    public String userView(
             @ShellOption(value = { "--username", "-u" }, defaultValue = ShellOption.NULL) String username) {
         log.info("view request for user {}", username);
         User user = null;
@@ -110,52 +109,4 @@ public class UserCommandController {
         }
         return "user " + username + " deleted";
     }
-
-    @ShellMethod(key = "user unfollow", value = "unfollow user with username")
-    public String userUnfollow(@ShellOption(value = { "--username", "-u" }) String username) {
-        return "user " + username + " unfollowed";
-    }
-
-    @ShellMethod(key = "user following", value = "list of users followed by user")
-    public String userFollowing(
-            @ShellOption(value = { "--limit", "-l" }, defaultValue = "5") @Size(min = 1, max = 5) int limit,
-            @ShellOption(value = { "--page", "-p" }, defaultValue = "1") @Size(min = 1) int page) {
-        return "user's following list";
-    }
-
-    @ShellMethod(key = "user followers", value = "list of users following user")
-    public String userFollowedBy(@ShellOption(value = { "--limit", "-l" }) @Size(min = 1, max = 5) int limit,
-            @ShellOption(value = { "--page", "-p" }) @Size(min = 1) int page) {
-        return "user's followers list";
-    }
-
-    @ShellMethod(key = "user delete", value = "delete user")
-    public String userDelete(@ShellOption(value = { "--token", "-t" }, defaultValue = "-1") String token,
-            @ShellOption(value = { "--hard", "-h" }, defaultValue = "false") boolean hard) {
-        Boolean hardDelete = false;
-
-        if (token.equals("-1")) {
-            return "token";
-        } else {
-            // verify token
-            // hard delete
-            hardDelete = true;
-        }
-        if (hard && hardDelete) {
-            // perform hard delete
-        }
-        return "user deleted";
-    }
-
-    @ShellMethod(key = "user update", value = "fields that can be updated for user")
-    public String userUpdate(@ShellOption(value = { "--setting-name", "-n" }) String settingName,
-            @ShellOption(value = { "--setting-val", "-v" }) String settingValue) {
-
-        if (!settingName.isBlank() && !settingValue.isBlank()) {
-            // update setting
-            return "user updated";
-        }
-        return "Fields that can be updated with val";
-    }
-
 }
