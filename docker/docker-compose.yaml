@@ -6,7 +6,7 @@ services:
     build:
       context: ../
       dockerfile: docker/Dockerfile
-    container_name: prompt-catalog
+    container_name: soshell_server
     ports:
       - 3000:3000
     environment:
