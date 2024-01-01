@@ -50,7 +50,7 @@ feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1>#
  - Database migrations using flyway
  - Object Relational Mapping using Spring Data JPA 
  - Validations using jakarta validations API
- - Unit testing using Powermock
+ - Unit testing using Junit,Mockito
 
 ## Pre-requisites
 
