@@ -60,6 +60,11 @@ async function updateOutputText(command) {
     logout();
   }
 
+  if(commandBreakUp[0] == "post"){
+    command += " --username " + getCookie('session');
+    console.log("debug: " + command);
+  }
+
   // server call in background and update 
   const output = await fetchData(command);
   appendOutputText(output);

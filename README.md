@@ -25,24 +25,22 @@ user delete <username>
 
 ### Posting and Sharing
  - Allows users to create text-based posts.
- - Ability to share and rate(1-10) posts.
+ - Ability to view and rate(1-10) posts.
 
 ```
 post create <post-content>
-post update <post-id> <updated-post-content>
 post delete <post-id>
 post rate <post-id> <rating-point> # rating point between 1-10
 post view <post-id>
-post view <username> # returns list of user created posts
-post view --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1> # get user posts in paginated way
 ```
 ### User feed
  - Show posts created by users
  - Ability to view posts in paginated manner
 
 ```
-feed # returns top 5 unread posts and mark them as 'read'
-feed --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1># get feed in paginated way
+post list -u <username> # returns list of user created posts
+post list # returns top 5 unread posts and mark them as 'read'
+post list --limit <int(1-5), min=1 default,max=5> --page <int(1-n), min=1 default=1># get feed in paginated way
 ```
 
 ## NFRs
