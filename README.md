@@ -4,6 +4,7 @@ A Terminal Inspired Social Media Platform for Advanced Users.
 ## Architecture
 ![Alt text](docs/architecture.png)
 ## Demo
+![image](https://github.com/avinash-550/project-soshell/assets/59113057/6f52dab1-c46a-4c35-b613-ad3e7476016c)
 
 ## Tech Stack
 - Front-End - HTML/CSS/Javascript
